@@ -10,7 +10,20 @@
 <body>
     <h1>Game of Life</h1>
 
+    <div id="control-panel">
+        <!-- row size control -->
+        <label for="row-size-input">rows:</label>
+        <input type="number" name="row-size-input" id="row-size-input" min="10" max="100" value="10">
+        
+        <!-- column size control -->
+        <label for="column-size-input">columns:</label>
+        <input type="number" name="column-size-input" id="column-size-input" min="10" max="100" value="10">
+
+        <button id="start-btn">Start!</button>
+    </div>
+
     <div id="grid-container">
+        <!-- <div class="cell">¤</div>
         <div class="cell">¤</div>
         <div class="cell">¤</div>
         <div class="cell">¤</div>
@@ -18,8 +31,7 @@
         <div class="cell">¤</div>
         <div class="cell">¤</div>
         <div class="cell">¤</div>
-        <div class="cell">¤</div>
-        <div class="cell">¤</div>
+        <div class="cell">¤</div> -->
     </div>
     
     <script type="module" src="controller.js"></script>

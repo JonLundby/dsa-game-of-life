@@ -11,7 +11,7 @@ export default class Grid {
         for (let i = 0; i < rows; i++) {
             grid.push([]);
             for (let j = 0; j < cols; j++) {
-                if (cellValue || cellValue === null) {
+                if (cellValue || cellValue === null || cellValue === 0) {
                     grid[i].push(cellValue);
                 } else {
                     grid[i].push(i * cols + j);

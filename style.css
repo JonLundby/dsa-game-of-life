@@ -3,7 +3,8 @@
     --grid-cols: 10;
 }
 
-body {    
+body {
+    user-select: none;
     background-color: rgb(88, 93, 102);
     text-align: center;
     margin: 0;
@@ -43,4 +44,8 @@ label {
 
 .cell:hover {
     background-color: rgb(0, 0, 0);
+}
+
+.hidden {
+    display: none;
 }

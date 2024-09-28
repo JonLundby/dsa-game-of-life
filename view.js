@@ -3,7 +3,7 @@ import * as controller from "./controller.js";
 export { init, createVisualGrid, updateVisualCell, updateVisualGrid };
 
 function init() {
-    console.log("View initialized");
+    // console.log("View initialized");
 }
 
 function createVisualGrid(rows, cols) {

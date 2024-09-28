@@ -3,15 +3,21 @@ import * as view from "./view.js";
 
 export { handleCellClick };
 
-let GRID_HEIGHT = 20;
-let GRID_WIDTH = 20;
+let GRID_HEIGHT;
+let GRID_WIDTH;
 let model;
-let generation = 0;
+let generation;
 let intervalId;
 
 init();
 
+// initialisere event listeners og default opsætning
 function init() {
+    GRID_HEIGHT = parseInt(document.querySelector("#row-size-input").value);
+    GRID_WIDTH = parseInt(document.querySelector("#column-size-input").value);
+
+    generation = 0;
+
     // event listeners til kontrol knapper
     document.querySelector("#start-btn").addEventListener("click", startGame);
     document.querySelector("#random-cells-btn").addEventListener("click", addRandomCells);
@@ -27,9 +33,10 @@ function init() {
     view.createVisualGrid(GRID_HEIGHT, GRID_WIDTH);
     model = new Grid(GRID_HEIGHT, GRID_WIDTH, 0);
 
-    console.table(model.grid);
+    // console.table(model.grid);
 }
 
+// starter spillet
 function startGame() {
     
     toggleControlPanel();
@@ -39,8 +46,8 @@ function startGame() {
         view.updateVisualGrid(model);
         generation++;
         document.querySelector("#generation").textContent = generation;
-        console.table(model.grid);
-    }, 1200);
+        // console.table(model.grid);
+    }, 800);
 }
 
 // beregner nyt grid ud fra eksisterende grid og opdaterer model
@@ -68,6 +75,7 @@ function nextGeneration() {
     view.updateVisualGrid(model);
 }
 
+// ændre celler til døde/levende ved klik
 function handleCellClick(event) {
     const cell = event.target;
 
@@ -83,6 +91,7 @@ function handleCellClick(event) {
     view.updateVisualCell(cell, cellValue);
 }
 
+// tilføjer tilfældige celler til grid
 function addRandomCells() {
     for (let row = 0; row < model.rows; row++) {
         for (let col = 0; col < model.cols; col++) {
@@ -92,9 +101,10 @@ function addRandomCells() {
             }
         }
     }
-    console.table(model.grid);
+    // console.table(model.grid);
 }
 
+// stopper spillet og nulstiller interval
 function stopGame() {
     if (intervalId) {
         clearInterval(intervalId);
@@ -102,6 +112,7 @@ function stopGame() {
     toggleControlPanel();
 }
 
+// ændre grid størrelse og opdaterer model
 function resizeGrid() {
     GRID_HEIGHT = parseInt(document.querySelector("#row-size-input").value);
     GRID_WIDTH = parseInt(document.querySelector("#column-size-input").value);
@@ -110,6 +121,7 @@ function resizeGrid() {
     view.createVisualGrid(GRID_HEIGHT, GRID_WIDTH);
 }
 
+// fjerne alle celler fra grid og model og nullstiller generation
 function clearAllCells() {
     model.fill(0);
     view.updateVisualGrid(model);

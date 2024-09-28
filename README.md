@@ -1,6 +1,6 @@
 # Game of life
 
-[Try the program](ttps://jonlundby.github.io/dsa-game-of-life/)
+[Try the program](https://jonlundby.github.io/dsa-game-of-life/)
 
 - Adjust grid size as wanted and add random cells before starting game.
 - More random cells can be added while game is running.

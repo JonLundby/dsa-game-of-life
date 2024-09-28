@@ -27,6 +27,7 @@ function createVisualGrid(rows, cols) {
     }
 }
 
+// opdater hele visual grid basere på model
 function updateVisualGrid(model) {
     const cells = document.querySelectorAll(".cell");
 
@@ -34,10 +35,12 @@ function updateVisualGrid(model) {
         const row = cell.dataset.row;
         const col = cell.dataset.col;
         const value = model.get(row, col);
+
         updateVisualCell(cell, value);
     });
 }
 
+// opdater en enkelt celle i visual grid
 function updateVisualCell(cell, value) {
     if (value === 0) {
         cell.style.backgroundColor = "white";

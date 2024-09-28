@@ -129,6 +129,7 @@ function clearAllCells() {
     document.querySelector("#generation").textContent = generation;
 }
 
+// toggler start/stop knapper og input felter ift. spilstatus
 function toggleControlPanel() {
     if (document.querySelector("#start-btn").classList.contains("hidden")) {
         document.querySelector("#start-btn").classList.remove("hidden");
